@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The 48-Hour Funnel — Done-For-You VSL Funnel in 48 Hours</title>
-  <meta name="description" content="We build your entire VSL funnel — script, funnel, emails, and ad copy — in 48 hours. $297. One-time." />
+  <title>The 48-Hour Funnel - Done-For-You VSL Funnel in 48 Hours</title>
+  <meta name="description" content="We build your entire VSL funnel (script, funnel, emails, and ad copy) in 48 hours. $297. One-time." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -229,7 +229,7 @@
       list-style: none;
       display: flex; flex-direction: column; gap: 8px;
       margin: 16px auto 24px;
-      max-width: 340px; text-align: left;
+      max-width: 360px; text-align: left;
     }
 
     .includes-mini li {
@@ -243,6 +243,8 @@
       font-weight: 800; flex-shrink: 0;
       text-shadow: 0 0 8px var(--neon-glow);
     }
+
+    .includes-mini .bonus-item { color: var(--neon); font-weight: 600; }
 
     .problem-list {
       list-style: none;
@@ -271,28 +273,71 @@
       margin-top: 28px !important;
     }
 
-    .deliverables {
-      display: flex; flex-direction: column; gap: 14px;
-      margin: 32px auto 0; max-width: 620px;
+    /* OFFER STRUCTURE */
+    .offer-core {
+      background: linear-gradient(135deg, rgba(191,95,255,0.12), rgba(13,13,20,0.95));
+      border: 2px solid rgba(191,95,255,0.4);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      text-align: left;
+      margin: 32px auto 0;
+      max-width: 620px;
+      box-shadow: 0 0 32px rgba(191,95,255,0.1);
     }
 
-    .deliverable {
-      display: flex; gap: 16px; align-items: flex-start;
-      background: linear-gradient(135deg, rgba(191,95,255,0.07), rgba(13,13,20,0.9));
-      border: 1px solid rgba(191,95,255,0.2);
-      border-radius: 14px;
-      padding: 20px 22px; text-align: left;
-      transition: border-color 0.3s, box-shadow 0.3s;
+    .offer-core-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 10px;
     }
 
-    .deliverable:hover {
-      border-color: rgba(191,95,255,0.5);
-      box-shadow: 0 0 24px rgba(191,95,255,0.1);
+    .offer-core-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
     }
 
-    .deliverable-icon { font-size: 26px; flex-shrink: 0; }
-    .deliverable-title { font-weight: 700; font-size: 16px; color: var(--text); margin-bottom: 6px; }
-    .deliverable-desc { font-size: 14px; color: var(--muted); margin: 0; }
+    .offer-core-desc {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .bonuses-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #f5c842;
+      margin: 32px auto 16px;
+      max-width: 620px;
+      text-align: left;
+    }
+
+    .bonuses {
+      display: flex; flex-direction: column; gap: 12px;
+      margin: 0 auto;
+      max-width: 620px;
+    }
+
+    .bonus-item-card {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: rgba(245,200,66,0.04);
+      border: 1px solid rgba(245,200,66,0.2);
+      border-radius: 12px;
+      padding: 18px 20px; text-align: left;
+      transition: border-color 0.3s;
+    }
+
+    .bonus-item-card:hover { border-color: rgba(245,200,66,0.4); }
+
+    .bonus-item-icon { font-size: 24px; flex-shrink: 0; }
+    .bonus-item-title { font-weight: 700; font-size: 15px; color: #f5c842; margin-bottom: 4px; }
+    .bonus-item-desc { font-size: 14px; color: var(--muted); margin: 0; }
 
     .mockup-wrap {
       margin: 32px auto 0; max-width: 580px;
@@ -421,8 +466,8 @@
 
     .bonus-badge {
       display: inline-block;
-      background: linear-gradient(90deg, var(--accent2), var(--neon));
-      color: #fff; font-size: 11px; font-weight: 800;
+      background: linear-gradient(90deg, #c8960a, #f5c842);
+      color: #000; font-size: 11px; font-weight: 800;
       letter-spacing: 0.1em; text-transform: uppercase;
       padding: 4px 14px; border-radius: 20px; margin-bottom: 16px;
     }
@@ -497,7 +542,7 @@
 
     .about-photo {
       width: 130px; height: 130px;
-      border-radius: 50%; object-fit: cover; object-position: center top;
+      border-radius: 50%; object-fit: cover; object-position: center 12%;
       flex-shrink: 0;
       border: 2px solid rgba(191,95,255,0.5);
       box-shadow: 0 0 24px rgba(191,95,255,0.2);
@@ -558,13 +603,13 @@
 <body>
 
   <div class="spots-bar">
-    Only <span>10 spots</span> available this week — once they're gone, next slot is the following week
+    Only <span>10 spots</span> available this week - once they're gone, the next slot is the following week
   </div>
 
   <div class="hero reveal">
     <span class="eyebrow">The 48-Hour Funnel</span>
     <h1>Your Entire VSL Funnel<br><span class="purple">Built in 48 Hours.</span></h1>
-    <p class="subheadline">Script. Funnel. Emails. Ad copy. All done for you. You show up to a 30-minute call, we deliver the rest.</p>
+    <p class="subheadline">You show up to a 30-minute call. We build the whole thing and hand it over within 48 hours.</p>
   </div>
 
   <div class="video-wrap reveal">
@@ -585,13 +630,13 @@
     <div class="checkout-block reveal">
       <div class="price-label">One-time payment</div>
       <div class="price">$297</div>
-      <div class="price-note">48-hour delivery — funnel, script, emails, ad copy + bonus</div>
+      <div class="price-note">48-hour delivery from your onboarding call</div>
       <ul class="includes-mini">
-        <li>VSL script written for your offer</li>
-        <li>Full funnel build — deployed and live</li>
-        <li>Email follow-up sequences</li>
-        <li>5-10 ad scripts for Meta</li>
-        <li>BONUS: 12-email pre-sell sequence</li>
+        <li>Full funnel build (deployed and live)</li>
+        <li class="bonus-item">BONUS: VSL script written for your offer</li>
+        <li class="bonus-item">BONUS: Email follow-up sequences</li>
+        <li class="bonus-item">BONUS: 5-10 ad scripts for Meta</li>
+        <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">
         <!-- FANBASES EMBED -->
@@ -606,49 +651,26 @@
     <p class="reveal">Most high-ticket sellers are stuck doing everything manually. Sound familiar?</p>
     <ul class="problem-list">
       <li class="reveal reveal-delay-1">You're living in the DMs trying to book calls</li>
-      <li class="reveal reveal-delay-2">You've got no funnel, no follow-up, no retargeting</li>
+      <li class="reveal reveal-delay-2">You have no funnel, no follow-up, no retargeting</li>
       <li class="reveal reveal-delay-3">You tried to build a VSL page once and it never got finished</li>
-      <li class="reveal reveal-delay-4">You're getting on calls with unqualified leads who aren't ready to buy</li>
+      <li class="reveal reveal-delay-4">You're getting on calls with people who aren't ready to buy</li>
       <li class="reveal reveal-delay-4">Nothing is running while you sleep</li>
     </ul>
     <p class="problem-closing reveal">That's not a business. That's a job.</p>
   </section>
 
-  <!-- DELIVERABLES -->
+  <!-- WHAT YOU GET -->
   <section>
-    <h2 class="reveal">Everything built for you.<br><span class="purple">Delivered in 48 hours.</span></h2>
-    <div class="deliverables">
-      <div class="deliverable reveal reveal-delay-1">
-        <div class="deliverable-icon">&#127909;</div>
-        <div>
-          <div class="deliverable-title">VSL Script</div>
-          <p class="deliverable-desc">A full video sales letter script written for your offer, audience, and tone. Ready to record the day you get it.</p>
-        </div>
-      </div>
-      <div class="deliverable reveal reveal-delay-2">
-        <div class="deliverable-icon">&#128421;</div>
-        <div>
-          <div class="deliverable-title">Funnel Build</div>
-          <p class="deliverable-desc">A clean, fast-loading VSL funnel page — deployed and live. No Webflow, no ClickFunnels, no monthly fees.</p>
-        </div>
-      </div>
-      <div class="deliverable reveal reveal-delay-3">
-        <div class="deliverable-icon">&#128140;</div>
-        <div>
-          <div class="deliverable-title">Email Follow-Up Sequences</div>
-          <p class="deliverable-desc">Follow-up sequences that convert leads who don't book straight away. Written, structured, ready to plug in.</p>
-        </div>
-      </div>
-      <div class="deliverable reveal reveal-delay-4">
-        <div class="deliverable-icon">&#128242;</div>
-        <div>
-          <div class="deliverable-title">5-10 Ad Scripts</div>
-          <p class="deliverable-desc">Ready-to-run ad scripts for Meta. Hand them to an editor or film them yourself.</p>
-        </div>
-      </div>
+    <h2 class="reveal">What you get</h2>
+    <p class="reveal">One core deliverable. Four free bonuses. All done for you in 48 hours.</p>
+
+    <div class="offer-core reveal">
+      <div class="offer-core-label">Core Deliverable</div>
+      <div class="offer-core-title">Full VSL Funnel Build</div>
+      <p class="offer-core-desc">A clean, fast-loading VSL funnel page built and deployed for you. No Webflow, no ClickFunnels, no monthly fees. You get the login, the live URL, and full ownership.</p>
     </div>
 
-    <div class="mockup-wrap reveal" style="margin-top: 48px;">
+    <div class="mockup-wrap reveal" style="margin-top: 24px;">
       <div class="mockup-browser">
         <div class="mockup-bar">
           <div class="mockup-dot red"></div>
@@ -669,20 +691,53 @@
         </div>
       </div>
     </div>
+
+    <p class="bonuses-label reveal">Free Bonuses (included with every build)</p>
+
+    <div class="bonuses">
+      <div class="bonus-item-card reveal reveal-delay-1">
+        <div class="bonus-item-icon">&#127909;</div>
+        <div>
+          <div class="bonus-item-title">VSL Script</div>
+          <p class="bonus-item-desc">A full video sales letter script written for your offer, your audience, and your tone. Ready to record the day you receive it.</p>
+        </div>
+      </div>
+      <div class="bonus-item-card reveal reveal-delay-2">
+        <div class="bonus-item-icon">&#128140;</div>
+        <div>
+          <div class="bonus-item-title">Email Follow-Up Sequences</div>
+          <p class="bonus-item-desc">Written sequences that convert the leads who don't book straight away. Structured and ready to plug into your email platform.</p>
+        </div>
+      </div>
+      <div class="bonus-item-card reveal reveal-delay-3">
+        <div class="bonus-item-icon">&#128242;</div>
+        <div>
+          <div class="bonus-item-title">5-10 Ad Scripts for Meta</div>
+          <p class="bonus-item-desc">Ready-to-run scripts written for your offer. Hand them to an editor or film them yourself.</p>
+        </div>
+      </div>
+      <div class="bonus-item-card reveal reveal-delay-4">
+        <div class="bonus-item-icon">&#9993;</div>
+        <div>
+          <div class="bonus-item-title">12-Email Pre-Sell Sequence</div>
+          <p class="bonus-item-desc">Every lead that books through your funnel gets this sequence. By the time they show up to the call, they're already bought in. Your close rate goes up. Your no-shows go down.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- BONUS -->
+  <!-- BONUS EMAIL MOCKUP -->
   <section>
-    <div class="bonus-badge reveal">Bonus</div>
+    <div class="bonus-badge reveal">Bonus Highlight</div>
     <h2 class="reveal">12-Email <span class="purple">Pre-Sell Sequence</span></h2>
-    <p class="reveal" style="max-width: 520px; margin: 0 auto;">Every lead that books a call through your funnel gets this sequence. By the time they show up, they're already sold. Your close rate goes up. Your no-show rate goes down.</p>
+    <p class="reveal" style="max-width: 520px; margin: 0 auto;">Sent to every prospect the moment they book a call. They arrive pre-sold, pre-qualified, and ready to move forward.</p>
 
     <div class="mockup-wrap reveal" style="margin-top: 32px;">
       <div class="email-mockup">
         <div class="email-header">
           <div class="email-avatar"></div>
           <div class="email-meta">
-            <div class="email-from">Your Name — Pre-Sell Sequence</div>
+            <div class="email-from">Your Name - Pre-Sell Sequence</div>
             <div class="email-subject">12 emails delivered before the call</div>
           </div>
         </div>
@@ -690,21 +745,21 @@
           <div class="email-row">
             <div class="email-num">1</div>
             <div class="email-row-content">
-              <div class="email-row-title">Welcome + what to expect on the call</div>
-              <div class="email-row-day">Day 1 — sent immediately</div>
+              <div class="email-row-title">Welcome and what to expect on the call</div>
+              <div class="email-row-day">Day 1 (sent immediately)</div>
             </div>
           </div>
           <div class="email-row">
             <div class="email-num">2</div>
             <div class="email-row-content">
-              <div class="email-row-title">Your story + why this works</div>
+              <div class="email-row-title">Your story and why this works</div>
               <div class="email-row-day">Day 2</div>
             </div>
           </div>
           <div class="email-row">
             <div class="email-num">3</div>
             <div class="email-row-content">
-              <div class="email-row-title">Client result — proof it's real</div>
+              <div class="email-row-title">Client result (proof it's real)</div>
               <div class="email-row-day">Day 3</div>
             </div>
           </div>
@@ -803,11 +858,11 @@
       <div class="price">$297</div>
       <div class="price-note">Delivered within 48 hours of your onboarding call</div>
       <ul class="includes-mini">
-        <li>VSL script written for your offer</li>
-        <li>Full funnel build — deployed and live</li>
-        <li>Email follow-up sequences</li>
-        <li>5-10 ad scripts for Meta</li>
-        <li>BONUS: 12-email pre-sell sequence</li>
+        <li>Full funnel build (deployed and live)</li>
+        <li class="bonus-item">BONUS: VSL script written for your offer</li>
+        <li class="bonus-item">BONUS: Email follow-up sequences</li>
+        <li class="bonus-item">BONUS: 5-10 ad scripts for Meta</li>
+        <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">
         <div class="checkout-placeholder">[ Fanbases checkout embed ]</div>
@@ -843,21 +898,21 @@
         <div class="step-num">2</div>
         <div class="step-content">
           <div class="step-title">30-minute onboarding call</div>
-          <p class="step-desc">We go through your offer, your audience, your goals. That's all we need. No homework, no forms.</p>
+          <p class="step-desc">We go through your offer, your audience, and your goals. That's all we need. No prep work, no forms.</p>
         </div>
       </div>
       <div class="step reveal reveal-delay-3">
         <div class="step-num">3</div>
         <div class="step-content">
           <div class="step-title">We build everything</div>
-          <p class="step-desc">VSL script, funnel, emails, ad scripts — all built using our AI workflow. Delivered within 48 hours of the call.</p>
+          <p class="step-desc">Funnel, VSL script, emails, ad scripts. All built and delivered within 48 hours of the call.</p>
         </div>
       </div>
       <div class="step reveal reveal-delay-4">
         <div class="step-num">4</div>
         <div class="step-content">
           <div class="step-title">You get the keys</div>
-          <p class="step-desc">Your funnel is live. Calls start booking into your calendar. You just need to record the VSL and run the ads.</p>
+          <p class="step-desc">Your funnel is live. Calls start booking into your calendar. Record the VSL, run the ads, and go.</p>
         </div>
       </div>
     </div>
@@ -869,27 +924,27 @@
     <div class="faq-list">
       <div class="faq-item reveal reveal-delay-1">
         <div class="faq-q">Is this worth $297?</div>
-        <p class="faq-a">If your offer is high ticket and you close even one client through this funnel, you've paid for it 10x over. The deliverables alone — VSL script, funnel build, email sequences, 10 ad scripts, and a 12-email pre-sell sequence — would cost you $3,000+ hiring this out separately.</p>
+        <p class="faq-a">If your offer is high ticket and you close even one client through this funnel, you've covered the cost many times over. A VSL script, funnel build, email sequences, 10 ad scripts, and a 12-email pre-sell sequence would cost $3,000 or more if you hired each piece out separately.</p>
       </div>
       <div class="faq-item reveal reveal-delay-2">
         <div class="faq-q">Will it work for my niche?</div>
-        <p class="faq-a">If you sell high ticket — coaching, consulting, courses, done-for-you services — yes. The onboarding call is specifically so we can tailor everything to your offer and audience. Nothing is generic.</p>
+        <p class="faq-a">If you sell high ticket (coaching, consulting, courses, done-for-you services) yes. The onboarding call is how we tailor everything to your specific offer and audience. Nothing is templated.</p>
       </div>
       <div class="faq-item reveal reveal-delay-3">
         <div class="faq-q">How do you build it so fast?</div>
-        <p class="faq-a">We use a full AI workflow and a team that does this every day. What takes most people weeks to figure out, we've systemised down to 48 hours. You get the same quality — just faster.</p>
+        <p class="faq-a">We have a full team and a proven workflow. What takes most people weeks to piece together, we've refined into a 48-hour process. You get the same quality, just a lot faster.</p>
       </div>
       <div class="faq-item reveal reveal-delay-4">
         <div class="faq-q">When will I see a return on this?</div>
-        <p class="faq-a">As soon as your funnel is live and you're running traffic to it, calls start booking into your calendar. Most people see their first booked call within days of launching.</p>
+        <p class="faq-a">As soon as your funnel is live and you're running traffic to it, calls start booking into your calendar. Most people see their first call booked within days of launching.</p>
       </div>
       <div class="faq-item reveal reveal-delay-4">
         <div class="faq-q">Do I need to record a VSL before you start?</div>
-        <p class="faq-a">No. We write the VSL script as part of the build. You record it in your own time. The funnel goes live regardless — it'll work with or without the video while you're getting it filmed.</p>
+        <p class="faq-a">No. We write the script as part of the build. You record it in your own time. The funnel goes live either way and will convert with or without the video while you're getting it filmed.</p>
       </div>
       <div class="faq-item reveal reveal-delay-4">
         <div class="faq-q">How many spots are available each week?</div>
-        <p class="faq-a">We cap at 10 builds per week to guarantee 48-hour delivery. Once spots are full, the next slot rolls to the following week.</p>
+        <p class="faq-a">We take on 10 builds per week to make sure every client gets their delivery within 48 hours. Once those spots are gone, the next available slot is the following week.</p>
       </div>
     </div>
   </section>
@@ -897,17 +952,17 @@
   <!-- CHECKOUT #3 -->
   <section style="padding-bottom: 80px;">
     <h2 class="reveal">Last chance to grab a spot this week.</h2>
-    <p class="reveal" style="margin-bottom: 32px;">10 spots. $297. 48 hours. No fluff.</p>
+    <p class="reveal" style="margin-bottom: 32px;">10 spots. $297. 48 hours.</p>
     <div class="checkout-block reveal">
       <div class="price-label">One-time payment</div>
       <div class="price">$297</div>
       <div class="price-note">Delivered within 48 hours of your onboarding call</div>
       <ul class="includes-mini">
-        <li>VSL script written for your offer</li>
-        <li>Full funnel build — deployed and live</li>
-        <li>Email follow-up sequences</li>
-        <li>5-10 ad scripts for Meta</li>
-        <li>BONUS: 12-email pre-sell sequence</li>
+        <li>Full funnel build (deployed and live)</li>
+        <li class="bonus-item">BONUS: VSL script written for your offer</li>
+        <li class="bonus-item">BONUS: Email follow-up sequences</li>
+        <li class="bonus-item">BONUS: 5-10 ad scripts for Meta</li>
+        <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">
         <div class="checkout-placeholder">[ Fanbases checkout embed ]</div>

@@ -63,14 +63,37 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal.visible { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-left.visible,
+    .reveal-right.visible,
+    .reveal-scale.visible { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.18s; }
+    .reveal-delay-3 { transition-delay: 0.28s; }
+    .reveal-delay-4 { transition-delay: 0.38s; }
 
     .spots-bar {
       background: linear-gradient(90deg, #2a0055, #5500aa, #2a0055);
@@ -742,28 +765,28 @@
     <p class="bonuses-label reveal">Free Bonuses (included with every build)</p>
 
     <div class="bonuses">
-      <div class="bonus-item-card reveal reveal-delay-1">
+      <div class="bonus-item-card reveal-left reveal-delay-1">
         <div class="bonus-item-icon">&#127909;</div>
         <div>
           <div class="bonus-item-title">VSL Script</div>
           <p class="bonus-item-desc">A full video sales letter script written for your offer, your audience, and your tone. Ready to record the day you receive it.</p>
         </div>
       </div>
-      <div class="bonus-item-card reveal reveal-delay-2">
+      <div class="bonus-item-card reveal-right reveal-delay-2">
         <div class="bonus-item-icon">&#128140;</div>
         <div>
           <div class="bonus-item-title">Email Follow-Up Sequences</div>
           <p class="bonus-item-desc">Written sequences that convert the leads who don't book straight away. Structured and ready to plug into your email platform.</p>
         </div>
       </div>
-      <div class="bonus-item-card reveal reveal-delay-3">
+      <div class="bonus-item-card reveal-left reveal-delay-3">
         <div class="bonus-item-icon">&#128242;</div>
         <div>
           <div class="bonus-item-title">5-10 Ad Scripts for Meta</div>
           <p class="bonus-item-desc">Ready-to-run scripts written for your offer. Hand them to an editor or film them yourself.</p>
         </div>
       </div>
-      <div class="bonus-item-card reveal reveal-delay-4">
+      <div class="bonus-item-card reveal-right reveal-delay-4">
         <div class="bonus-item-icon">&#9993;</div>
         <div>
           <div class="bonus-item-title">12-Email Pre-Sell Sequence</div>
@@ -842,19 +865,19 @@
     <p class="reveal">Real results from real clients who had the right system built for their offer.</p>
 
     <div class="results-grid">
-      <div class="result-card reveal reveal-delay-1">
+      <div class="result-card reveal-scale reveal-delay-1">
         <div class="result-number">$45K</div>
         <div class="result-name">Abigail</div>
         <div class="result-detail">12 days (from $400/mo)</div>
         <a class="result-handle" href="https://instagram.com/abigaildaniellla" target="_blank">@abigaildaniellla</a>
       </div>
-      <div class="result-card reveal reveal-delay-2">
+      <div class="result-card reveal-scale reveal-delay-2">
         <div class="result-number">$30K/mo</div>
         <div class="result-name">Shema</div>
         <div class="result-detail">30 days (from $250/mo)</div>
         <a class="result-handle" href="https://instagram.com/shema.kamau" target="_blank">@shema.kamau</a>
       </div>
-      <div class="result-card reveal reveal-delay-3">
+      <div class="result-card reveal-scale reveal-delay-3">
         <div class="result-number">$25K</div>
         <div class="result-name">Arthur</div>
         <div class="result-detail">First month (from zero)</div>
@@ -1043,7 +1066,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
 
     // Counter animation on result numbers
     function animateCounter(el) {

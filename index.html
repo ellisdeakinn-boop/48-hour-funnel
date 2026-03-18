@@ -18,7 +18,7 @@
       --neon-glow: rgba(191, 95, 255, 0.4);
       --text: #f0f0f0;
       --muted: #8888aa;
-      --max: 760px;
+      --max: 780px;
     }
 
     html { scroll-behavior: smooth; }
@@ -33,115 +33,124 @@
       overflow-x: hidden;
     }
 
-    /* GRID BACKGROUND */
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background-image:
-        linear-gradient(rgba(191, 95, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(191, 95, 255, 0.06) 1px, transparent 1px);
+        linear-gradient(rgba(191, 95, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(191, 95, 255, 0.05) 1px, transparent 1px);
       background-size: 48px 48px;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* RADIAL GLOW */
     body::after {
       content: '';
       position: fixed;
       top: -20%;
       left: 50%;
       transform: translateX(-50%);
-      width: 800px;
+      width: 900px;
       height: 600px;
-      background: radial-gradient(ellipse at center, rgba(191, 95, 255, 0.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(191, 95, 255, 0.1) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
     body > * { position: relative; z-index: 1; }
 
-    /* SCROLL ANIMATIONS */
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* TOP BAR */
-    .topbar {
-      background: linear-gradient(90deg, #3a0070, #6a00cc, #3a0070);
+    .spots-bar {
+      background: linear-gradient(90deg, #2a0055, #5500aa, #2a0055);
       background-size: 200% 100%;
-      animation: shimmer 4s linear infinite;
-      color: #e8c4ff;
+      animation: shimmer 5s linear infinite;
+      color: #e0b8ff;
       text-align: center;
       padding: 10px 20px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.04em;
-      border-bottom: 1px solid rgba(191, 95, 255, 0.3);
+      border-bottom: 1px solid rgba(191, 95, 255, 0.25);
     }
+
+    .spots-bar span { color: #fff; font-weight: 800; }
 
     @keyframes shimmer {
       0% { background-position: 0% 0; }
       100% { background-position: 200% 0; }
     }
 
-    /* HERO */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5.5vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .purple { color: var(--neon); text-shadow: 0 0 20px var(--neon-glow); }
+
+    p { color: #aaa; margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+
     .hero {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 80px 24px 56px;
+      padding: 80px 24px 48px;
       text-align: center;
     }
 
     .eyebrow {
       display: inline-block;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--neon);
-      margin-bottom: 20px;
       text-shadow: 0 0 12px var(--neon-glow);
-    }
-
-    h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      font-weight: 900;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
       margin-bottom: 20px;
-    }
-
-    h1 span {
-      color: var(--neon);
-      text-shadow: 0 0 24px var(--neon-glow);
     }
 
     .subheadline {
       font-size: clamp(17px, 2.5vw, 20px);
       color: #bbb;
-      max-width: 580px;
+      max-width: 560px;
       margin: 0 auto 40px;
       line-height: 1.6;
     }
 
-    /* VIDEO */
     .video-wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 24px 64px;
+      padding: 0 24px 48px;
     }
 
     .video-container {
@@ -152,239 +161,45 @@
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(191, 95, 255, 0.3);
-      box-shadow: 0 0 40px rgba(191, 95, 255, 0.15), 0 0 80px rgba(191, 95, 255, 0.05);
+      box-shadow: 0 0 48px rgba(191, 95, 255, 0.12);
     }
 
-    .video-container iframe,
-    .video-container video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
+    .video-container iframe, .video-container video {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
     }
 
     .video-placeholder {
-      position: absolute;
-      top: 0; left: 0;
+      position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 15px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px; color: var(--muted); font-size: 15px;
     }
 
-    .video-placeholder svg {
-      width: 64px;
-      height: 64px;
-      opacity: 0.5;
-      color: var(--accent);
-    }
+    .video-placeholder svg { width: 60px; height: 60px; color: var(--accent); opacity: 0.6; }
 
-    /* SECTION SHARED */
-    section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 56px 24px;
-      border-top: 1px solid var(--border);
+    .checkout-block {
+      background: linear-gradient(135deg, rgba(191,95,255,0.1), rgba(10,10,18,0.95));
+      border: 1px solid rgba(191, 95, 255, 0.35);
+      border-radius: 18px;
+      padding: 36px 32px;
       text-align: center;
-    }
-
-    h2 {
-      font-size: clamp(24px, 3.5vw, 36px);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    h2 .purple { color: var(--neon); text-shadow: 0 0 16px var(--neon-glow); }
-
-    p { margin-bottom: 16px; color: #aaa; }
-    p:last-child { margin-bottom: 0; }
-
-    /* PROBLEM */
-    .problem-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 24px;
-      text-align: left;
+      box-shadow: 0 0 48px rgba(191, 95, 255, 0.1);
       max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
 
-    .problem-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: #bbb;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px 16px;
-    }
-
-    .problem-list li::before {
-      content: '✗';
-      color: #e05252;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .problem-closing {
-      margin-top: 28px !important;
-      font-size: 18px;
-      color: #ddd !important;
-      font-weight: 600;
-    }
-
-    /* WHAT YOU GET */
-    .deliverables {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 32px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .deliverable {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      background: linear-gradient(135deg, rgba(191,95,255,0.07), rgba(13,13,20,0.8));
-      border: 1px solid rgba(191, 95, 255, 0.2);
-      border-radius: 12px;
-      padding: 20px 22px;
-      text-align: left;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-
-    .deliverable:hover {
-      border-color: rgba(191, 95, 255, 0.5);
-      box-shadow: 0 0 24px rgba(191, 95, 255, 0.1);
-    }
-
-    .deliverable-icon {
-      font-size: 24px;
-      flex-shrink: 0;
-    }
-
-    .deliverable-title {
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .deliverable-desc {
-      font-size: 14px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* PROOF */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .result-card {
-      background: linear-gradient(135deg, rgba(191,95,255,0.1), rgba(13,13,20,0.9));
-      border: 1px solid rgba(191, 95, 255, 0.25);
-      border-radius: 12px;
-      padding: 24px 16px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .result-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(191, 95, 255, 0.2);
-    }
-
-    .result-number {
-      font-size: 30px;
+    .checkout-block .price {
+      font-size: clamp(52px, 10vw, 76px);
       font-weight: 900;
       color: var(--neon);
-      text-shadow: 0 0 16px var(--neon-glow);
-      line-height: 1.1;
-      margin-bottom: 8px;
+      text-shadow: 0 0 28px var(--neon-glow);
+      line-height: 1;
+      letter-spacing: -0.03em;
     }
 
-    .result-label {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* HOW IT WORKS */
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 32px;
-      max-width: 580px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-    }
-
-    .step {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .step:last-child { border-bottom: none; }
-
-    .step-num {
-      width: 38px;
-      height: 38px;
-      background: linear-gradient(135deg, var(--accent2), var(--neon));
-      color: #fff;
-      font-weight: 800;
-      font-size: 14px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 0 16px var(--neon-glow);
-    }
-
-    .step-content { flex: 1; }
-    .step-title { font-weight: 700; margin-bottom: 4px; color: var(--text); }
-    .step-desc { font-size: 14px; color: var(--muted); margin: 0; }
-
-    /* CHECKOUT */
-    .checkout-section {
-      background: linear-gradient(135deg, rgba(191,95,255,0.08), rgba(10,10,18,0.95));
-      border: 1px solid rgba(191, 95, 255, 0.35);
-      border-radius: 20px;
-      padding: 48px 36px;
-      text-align: center;
-      max-width: var(--max);
-      margin: 0 auto;
-      box-shadow: 0 0 60px rgba(191, 95, 255, 0.12);
-    }
-
-    .price-block { margin: 28px 0; }
-
-    .price-label {
+    .checkout-block .price-label {
       font-size: 12px;
       color: var(--muted);
       text-transform: uppercase;
@@ -392,117 +207,369 @@
       margin-bottom: 8px;
     }
 
-    .price {
-      font-size: clamp(52px, 10vw, 80px);
-      font-weight: 900;
-      color: var(--neon);
-      text-shadow: 0 0 32px var(--neon-glow);
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .price-note {
-      font-size: 14px;
+    .checkout-block .price-note {
+      font-size: 13px;
       color: var(--muted);
-      margin-top: 10px;
+      margin-top: 8px;
+      margin-bottom: 24px;
     }
 
-    .includes-list {
+    .checkout-embed-wrap { max-width: 420px; margin: 0 auto; }
+
+    .checkout-placeholder {
+      background: rgba(191,95,255,0.05);
+      border: 1px dashed rgba(191,95,255,0.3);
+      border-radius: 10px;
+      padding: 28px;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .includes-mini {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 28px auto 36px;
-      text-align: left;
-      max-width: 400px;
+      display: flex; flex-direction: column; gap: 8px;
+      margin: 16px auto 24px;
+      max-width: 340px; text-align: left;
     }
 
-    .includes-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 15px;
-      color: #ccc;
+    .includes-mini li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: #ccc;
     }
 
-    .includes-list li::before {
+    .includes-mini li::before {
       content: '✓';
       color: var(--neon);
-      font-weight: 800;
-      flex-shrink: 0;
+      font-weight: 800; flex-shrink: 0;
       text-shadow: 0 0 8px var(--neon-glow);
     }
 
-    /* FANBASES EMBED */
-    .checkout-embed {
-      width: 100%;
-      margin: 0 auto;
-      max-width: 480px;
+    .problem-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+      margin: 24px auto 0;
+      max-width: 560px; text-align: left;
     }
 
-    /* UPSELL NOTE */
-    .upsell-note {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 20px;
-      font-style: italic;
+    .problem-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px; color: #bbb;
     }
 
-    /* FAQ */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 32px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    .problem-list li::before {
+      content: '✗'; color: #e05252;
+      font-weight: 700; flex-shrink: 0;
+    }
+
+    .problem-closing {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      color: #eee !important;
+      margin-top: 28px !important;
+    }
+
+    .deliverables {
+      display: flex; flex-direction: column; gap: 14px;
+      margin: 32px auto 0; max-width: 620px;
+    }
+
+    .deliverable {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: linear-gradient(135deg, rgba(191,95,255,0.07), rgba(13,13,20,0.9));
+      border: 1px solid rgba(191,95,255,0.2);
+      border-radius: 14px;
+      padding: 20px 22px; text-align: left;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .deliverable:hover {
+      border-color: rgba(191,95,255,0.5);
+      box-shadow: 0 0 24px rgba(191,95,255,0.1);
+    }
+
+    .deliverable-icon { font-size: 26px; flex-shrink: 0; }
+    .deliverable-title { font-weight: 700; font-size: 16px; color: var(--text); margin-bottom: 6px; }
+    .deliverable-desc { font-size: 14px; color: var(--muted); margin: 0; }
+
+    .mockup-wrap {
+      margin: 32px auto 0; max-width: 580px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .mockup-browser {
+      background: #0e0e1a;
+      border: 1px solid rgba(191,95,255,0.25);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .mockup-bar {
+      background: #161625;
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 6px;
+      border-bottom: 1px solid rgba(191,95,255,0.15);
+    }
+
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-dot.red { background: #e05252; }
+    .mockup-dot.yellow { background: #f5c842; }
+    .mockup-dot.green { background: #50c878; }
+
+    .mockup-url {
+      background: rgba(255,255,255,0.05);
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 11px; color: var(--muted);
+      margin-left: 8px; flex: 1;
+    }
+
+    .mockup-content { padding: 20px 24px; }
+
+    .mockup-headline {
+      height: 14px;
+      background: linear-gradient(90deg, rgba(191,95,255,0.4), rgba(191,95,255,0.1));
+      border-radius: 4px; margin-bottom: 12px; width: 70%;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .mockup-line {
+      height: 8px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px; margin-bottom: 8px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .mockup-line.short { width: 55%; }
+    .mockup-line.medium { width: 75%; }
+
+    .mockup-video-thumb {
+      width: 100%; height: 120px;
+      background: linear-gradient(135deg, rgba(191,95,255,0.15), rgba(0,0,0,0.5));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 16px 0;
+      border: 1px solid rgba(191,95,255,0.2);
+    }
+
+    .mockup-play {
+      width: 40px; height: 40px;
+      background: rgba(191,95,255,0.4);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+
+    .mockup-btn {
+      height: 36px;
+      background: linear-gradient(90deg, var(--accent2), var(--neon));
+      border-radius: 6px; margin-top: 12px;
+      width: 60%; margin-left: auto; margin-right: auto;
+    }
+
+    .email-mockup {
+      background: #0e0e1a;
+      border: 1px solid rgba(191,95,255,0.25);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .email-header {
+      background: #161625;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(191,95,255,0.15);
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .email-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent2), var(--neon));
+      flex-shrink: 0;
+    }
+
+    .email-meta { text-align: left; }
+    .email-from { font-size: 13px; font-weight: 600; color: var(--text); }
+    .email-subject { font-size: 11px; color: var(--muted); }
+
+    .email-list { display: flex; flex-direction: column; }
+
+    .email-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
       text-align: left;
     }
 
-    .faq-item {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
+    .email-row:last-child { border-bottom: none; }
+
+    .email-num {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(191,95,255,0.15);
+      border: 1px solid rgba(191,95,255,0.3);
+      font-size: 10px; font-weight: 700; color: var(--neon);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
     }
 
+    .email-row-content { flex: 1; }
+    .email-row-title { font-size: 13px; color: #ccc; font-weight: 500; }
+    .email-row-day { font-size: 11px; color: var(--muted); }
+
+    .bonus-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent2), var(--neon));
+      color: #fff; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 16px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin: 32px auto 0; max-width: 640px;
+    }
+
+    .result-card {
+      background: linear-gradient(135deg, rgba(191,95,255,0.1), rgba(13,13,20,0.9));
+      border: 1px solid rgba(191,95,255,0.25);
+      border-radius: 14px; padding: 24px 16px; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .result-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(191,95,255,0.2);
+    }
+
+    .result-number {
+      font-size: 32px; font-weight: 900;
+      color: var(--neon);
+      text-shadow: 0 0 16px var(--neon-glow);
+      line-height: 1.1; margin-bottom: 6px;
+    }
+
+    .result-name { font-size: 14px; color: #ddd; font-weight: 600; margin-bottom: 4px; }
+    .result-detail { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+
+    .result-handle {
+      display: inline-block; font-size: 11px;
+      color: var(--neon); text-decoration: none; opacity: 0.8;
+    }
+
+    .result-handle:hover { opacity: 1; }
+
+    .testimonials {
+      display: flex; flex-direction: column; gap: 16px;
+      margin: 32px auto 0; max-width: 600px;
+    }
+
+    .testimonial {
+      background: linear-gradient(135deg, rgba(191,95,255,0.06), rgba(13,13,20,0.9));
+      border: 1px solid rgba(191,95,255,0.2);
+      border-radius: 14px; padding: 22px 24px; text-align: left;
+    }
+
+    .testimonial-text {
+      font-size: 15px; color: #ccc;
+      line-height: 1.6; margin-bottom: 14px; font-style: italic;
+    }
+
+    .testimonial-author { display: flex; align-items: center; gap: 10px; }
+
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent2), var(--neon));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+
+    .testimonial-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .testimonial-handle { font-size: 12px; color: var(--neon); opacity: 0.8; }
+
+    .about-wrap {
+      display: flex; align-items: center; gap: 32px;
+      max-width: 640px; margin: 32px auto 0; text-align: left;
+    }
+
+    .about-photo {
+      width: 130px; height: 130px;
+      border-radius: 50%; object-fit: cover; object-position: center top;
+      flex-shrink: 0;
+      border: 2px solid rgba(191,95,255,0.5);
+      box-shadow: 0 0 24px rgba(191,95,255,0.2);
+    }
+
+    .about-text h3 { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+    .about-title { font-size: 13px; color: var(--neon); margin-bottom: 12px; font-weight: 600; }
+    .about-text p { font-size: 15px; color: #aaa; margin-bottom: 0; }
+
+    .steps {
+      display: flex; flex-direction: column; gap: 0;
+      margin: 32px auto 0; max-width: 580px; text-align: left;
+    }
+
+    .step {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--accent2), var(--neon));
+      color: #fff; font-weight: 800; font-size: 15px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; box-shadow: 0 0 14px var(--neon-glow);
+    }
+
+    .step-content { flex: 1; }
+    .step-title { font-weight: 700; margin-bottom: 4px; color: var(--text); }
+    .step-desc { font-size: 14px; color: var(--muted); margin: 0; }
+
+    .faq-list {
+      display: flex; flex-direction: column; gap: 0;
+      margin: 32px auto 0; max-width: 600px; text-align: left;
+    }
+
+    .faq-item { padding: 20px 0; border-bottom: 1px solid var(--border); }
     .faq-item:last-child { border-bottom: none; }
     .faq-q { font-weight: 700; margin-bottom: 8px; color: var(--text); }
     .faq-a { font-size: 15px; color: var(--muted); margin: 0; }
 
-    /* FOOTER */
     footer {
-      text-align: center;
-      padding: 36px 24px;
-      font-size: 13px;
-      color: var(--muted);
+      text-align: center; padding: 36px 24px;
+      font-size: 13px; color: var(--muted);
       border-top: 1px solid var(--border);
     }
 
-    @media (max-width: 520px) {
-      .checkout-section { padding: 28px 20px; }
+    @media (max-width: 600px) {
+      .about-wrap { flex-direction: column; text-align: center; }
       .results-grid { grid-template-columns: 1fr 1fr; }
+      .checkout-block { padding: 28px 20px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    Limited spots available each week — we only take a set number of builds to guarantee 48-hour delivery
+  <div class="spots-bar">
+    Only <span>10 spots</span> available this week — once they're gone, next slot is the following week
   </div>
 
-  <!-- HERO -->
   <div class="hero reveal">
     <span class="eyebrow">The 48-Hour Funnel</span>
-    <h1>Your Entire VSL Funnel<br><span>Built in 48 Hours.</span></h1>
-    <p class="subheadline">
-      Script. Funnel. Emails. Ad copy. All done for you. You show up to a 30-minute call, we deliver the rest.
-    </p>
+    <h1>Your Entire VSL Funnel<br><span class="purple">Built in 48 Hours.</span></h1>
+    <p class="subheadline">Script. Funnel. Emails. Ad copy. All done for you. You show up to a 30-minute call, we deliver the rest.</p>
   </div>
 
-  <!-- VIDEO -->
   <div class="video-wrap reveal">
     <div class="video-container">
-      <!-- REPLACE THIS PLACEHOLDER WITH YOUR VIDEO EMBED -->
+      <!-- REPLACE WITH YOUR VIDEO EMBED -->
       <div class="video-placeholder">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <circle cx="12" cy="12" r="10"/>
@@ -510,9 +577,28 @@
         </svg>
         <span>Watch this short video</span>
       </div>
-      <!-- END PLACEHOLDER -->
     </div>
   </div>
+
+  <!-- CHECKOUT #1 -->
+  <section style="border-top: none; padding-top: 0; padding-bottom: 56px;">
+    <div class="checkout-block reveal">
+      <div class="price-label">One-time payment</div>
+      <div class="price">$297</div>
+      <div class="price-note">48-hour delivery — funnel, script, emails, ad copy + bonus</div>
+      <ul class="includes-mini">
+        <li>VSL script written for your offer</li>
+        <li>Full funnel build — deployed and live</li>
+        <li>Email follow-up sequences</li>
+        <li>5-10 ad scripts for Meta</li>
+        <li>BONUS: 12-email pre-sell sequence</li>
+      </ul>
+      <div class="checkout-embed-wrap">
+        <!-- FANBASES EMBED -->
+        <div class="checkout-placeholder">[ Fanbases checkout embed ]</div>
+      </div>
+    </div>
+  </section>
 
   <!-- PROBLEM -->
   <section>
@@ -528,7 +614,7 @@
     <p class="problem-closing reveal">That's not a business. That's a job.</p>
   </section>
 
-  <!-- WHAT YOU GET -->
+  <!-- DELIVERABLES -->
   <section>
     <h2 class="reveal">Everything built for you.<br><span class="purple">Delivered in 48 hours.</span></h2>
     <div class="deliverables">
@@ -536,49 +622,208 @@
         <div class="deliverable-icon">&#127909;</div>
         <div>
           <div class="deliverable-title">VSL Script</div>
-          <p class="deliverable-desc">A full video sales letter script written for your specific offer, audience, and tone. Ready to record the day you get it.</p>
+          <p class="deliverable-desc">A full video sales letter script written for your offer, audience, and tone. Ready to record the day you get it.</p>
         </div>
       </div>
       <div class="deliverable reveal reveal-delay-2">
         <div class="deliverable-icon">&#128421;</div>
         <div>
           <div class="deliverable-title">Funnel Build</div>
-          <p class="deliverable-desc">A clean, fast-loading VSL funnel page deployed and live. No Webflow, no ClickFunnels, no monthly fees.</p>
+          <p class="deliverable-desc">A clean, fast-loading VSL funnel page — deployed and live. No Webflow, no ClickFunnels, no monthly fees.</p>
         </div>
       </div>
       <div class="deliverable reveal reveal-delay-3">
         <div class="deliverable-icon">&#128140;</div>
         <div>
-          <div class="deliverable-title">Email Sequences</div>
-          <p class="deliverable-desc">Follow-up sequences that convert the leads who don't book right away. Written, structured, and ready to plug in.</p>
+          <div class="deliverable-title">Email Follow-Up Sequences</div>
+          <p class="deliverable-desc">Follow-up sequences that convert leads who don't book straight away. Written, structured, ready to plug in.</p>
         </div>
       </div>
       <div class="deliverable reveal reveal-delay-4">
         <div class="deliverable-icon">&#128242;</div>
         <div>
           <div class="deliverable-title">5-10 Ad Scripts</div>
-          <p class="deliverable-desc">Ready-to-run ad scripts for Meta. Hand them to an editor or film them yourself — they're written to convert.</p>
+          <p class="deliverable-desc">Ready-to-run ad scripts for Meta. Hand them to an editor or film them yourself.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mockup-wrap reveal" style="margin-top: 48px;">
+      <div class="mockup-browser">
+        <div class="mockup-bar">
+          <div class="mockup-dot red"></div>
+          <div class="mockup-dot yellow"></div>
+          <div class="mockup-dot green"></div>
+          <div class="mockup-url">yourfunnel.com</div>
+        </div>
+        <div class="mockup-content">
+          <div class="mockup-headline"></div>
+          <div class="mockup-line medium"></div>
+          <div class="mockup-line short"></div>
+          <div class="mockup-video-thumb">
+            <div class="mockup-play">&#9654;</div>
+          </div>
+          <div class="mockup-line medium"></div>
+          <div class="mockup-line short"></div>
+          <div class="mockup-btn"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF -->
+  <!-- BONUS -->
+  <section>
+    <div class="bonus-badge reveal">Bonus</div>
+    <h2 class="reveal">12-Email <span class="purple">Pre-Sell Sequence</span></h2>
+    <p class="reveal" style="max-width: 520px; margin: 0 auto;">Every lead that books a call through your funnel gets this sequence. By the time they show up, they're already sold. Your close rate goes up. Your no-show rate goes down.</p>
+
+    <div class="mockup-wrap reveal" style="margin-top: 32px;">
+      <div class="email-mockup">
+        <div class="email-header">
+          <div class="email-avatar"></div>
+          <div class="email-meta">
+            <div class="email-from">Your Name — Pre-Sell Sequence</div>
+            <div class="email-subject">12 emails delivered before the call</div>
+          </div>
+        </div>
+        <div class="email-list">
+          <div class="email-row">
+            <div class="email-num">1</div>
+            <div class="email-row-content">
+              <div class="email-row-title">Welcome + what to expect on the call</div>
+              <div class="email-row-day">Day 1 — sent immediately</div>
+            </div>
+          </div>
+          <div class="email-row">
+            <div class="email-num">2</div>
+            <div class="email-row-content">
+              <div class="email-row-title">Your story + why this works</div>
+              <div class="email-row-day">Day 2</div>
+            </div>
+          </div>
+          <div class="email-row">
+            <div class="email-num">3</div>
+            <div class="email-row-content">
+              <div class="email-row-title">Client result — proof it's real</div>
+              <div class="email-row-day">Day 3</div>
+            </div>
+          </div>
+          <div class="email-row">
+            <div class="email-num">4</div>
+            <div class="email-row-content">
+              <div class="email-row-title">Handle the biggest objection</div>
+              <div class="email-row-day">Day 4</div>
+            </div>
+          </div>
+          <div class="email-row">
+            <div class="email-num">5</div>
+            <div class="email-row-content">
+              <div class="email-row-title">What happens inside the call</div>
+              <div class="email-row-day">Day 5</div>
+            </div>
+          </div>
+          <div class="email-row" style="opacity:0.45;">
+            <div class="email-num">+7</div>
+            <div class="email-row-content">
+              <div class="email-row-title">7 more emails in the sequence</div>
+              <div class="email-row-day">All written and delivered with your build</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
   <section>
     <h2 class="reveal">The system works.<br><span class="purple">Here's the proof.</span></h2>
-    <p class="reveal">These are results from clients who had the right backend built for their offer.</p>
+    <p class="reveal">Real results from real clients who had the right system built for their offer.</p>
+
     <div class="results-grid">
       <div class="result-card reveal reveal-delay-1">
         <div class="result-number">$45K</div>
-        <div class="result-label">Abigail — 12 days<br>(from $400/mo)</div>
+        <div class="result-name">Abigail</div>
+        <div class="result-detail">12 days (from $400/mo)</div>
+        <a class="result-handle" href="https://instagram.com/abigaildaniellla" target="_blank">@abigaildaniellla</a>
       </div>
       <div class="result-card reveal reveal-delay-2">
         <div class="result-number">$30K/mo</div>
-        <div class="result-label">Shema — 30 days<br>(from $250/mo)</div>
+        <div class="result-name">Shema</div>
+        <div class="result-detail">30 days (from $250/mo)</div>
+        <a class="result-handle" href="https://instagram.com/shema.kamau" target="_blank">@shema.kamau</a>
       </div>
       <div class="result-card reveal reveal-delay-3">
         <div class="result-number">$25K</div>
-        <div class="result-label">Arthur — first month<br>(from zero)</div>
+        <div class="result-name">Arthur</div>
+        <div class="result-detail">First month (from zero)</div>
+        <a class="result-handle" href="https://instagram.com/its.arthur7" target="_blank">@its.arthur7</a>
+      </div>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonial reveal reveal-delay-1">
+        <p class="testimonial-text">"I went from $400 a month to $45K in 12 days. The funnel and the system they built was the missing piece I didn't know I needed."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Abigail</div>
+            <div class="testimonial-handle">@abigaildaniellla</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal reveal-delay-2">
+        <p class="testimonial-text">"From $250 a month to $30K a month in 30 days. The backend they built runs itself. I just show up to calls."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Shema</div>
+            <div class="testimonial-handle">@shema.kamau</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal reveal-delay-3">
+        <p class="testimonial-text">"Zero online revenue before this. Hit $25K in my first month. The VSL funnel did the selling before prospects even got on a call with me."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Arthur</div>
+            <div class="testimonial-handle">@its.arthur7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKOUT #2 -->
+  <section>
+    <h2 class="reveal">Ready to get your funnel built?</h2>
+    <p class="reveal" style="margin-bottom: 32px;">10 spots this week. $297. Delivered in 48 hours.</p>
+    <div class="checkout-block reveal">
+      <div class="price-label">One-time payment</div>
+      <div class="price">$297</div>
+      <div class="price-note">Delivered within 48 hours of your onboarding call</div>
+      <ul class="includes-mini">
+        <li>VSL script written for your offer</li>
+        <li>Full funnel build — deployed and live</li>
+        <li>Email follow-up sequences</li>
+        <li>5-10 ad scripts for Meta</li>
+        <li>BONUS: 12-email pre-sell sequence</li>
+      </ul>
+      <div class="checkout-embed-wrap">
+        <div class="checkout-placeholder">[ Fanbases checkout embed ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2 class="reveal">Who builds this for you</h2>
+    <div class="about-wrap reveal">
+      <img src="IMG_9284%203.PNG" alt="Ellis Deakin" class="about-photo" />
+      <div class="about-text">
+        <h3>Ellis Deakin</h3>
+        <p class="about-title">Founder, Elevate Operations</p>
+        <p>I left a $160K/yr career in the Royal Australian Navy 7 months ago to go all-in on this. Since then we've built backend systems that have generated hundreds of thousands of dollars for coaches and online operators. The 48-Hour Funnel is the fastest way to get the same system working for your offer.</p>
       </div>
     </div>
   </section>
@@ -598,56 +843,23 @@
         <div class="step-num">2</div>
         <div class="step-content">
           <div class="step-title">30-minute onboarding call</div>
-          <p class="step-desc">We go through your offer, your audience, your goals. That's all we need. No homework, no forms to fill out.</p>
+          <p class="step-desc">We go through your offer, your audience, your goals. That's all we need. No homework, no forms.</p>
         </div>
       </div>
       <div class="step reveal reveal-delay-3">
         <div class="step-num">3</div>
         <div class="step-content">
           <div class="step-title">We build everything</div>
-          <p class="step-desc">VSL script, funnel, emails, ad scripts. All written and built to your offer within 48 hours of the call.</p>
+          <p class="step-desc">VSL script, funnel, emails, ad scripts — all built using our AI workflow. Delivered within 48 hours of the call.</p>
         </div>
       </div>
       <div class="step reveal reveal-delay-4">
         <div class="step-num">4</div>
         <div class="step-content">
           <div class="step-title">You get the keys</div>
-          <p class="step-desc">We hand everything over. Your funnel is live. Your copy is ready. You just need to record the VSL and run the ads.</p>
+          <p class="step-desc">Your funnel is live. Calls start booking into your calendar. You just need to record the VSL and run the ads.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CHECKOUT -->
-  <section style="border-top: 1px solid var(--border); padding-top: 56px;">
-    <div class="checkout-section reveal">
-      <h2 style="margin-bottom: 4px;">Get your funnel built.</h2>
-      <p style="color: var(--muted); margin-bottom: 0;">One payment. 48-hour delivery. No ongoing fees.</p>
-
-      <div class="price-block">
-        <div class="price-label">One-time payment</div>
-        <div class="price">$297</div>
-        <div class="price-note">Delivered within 48 hours of your onboarding call</div>
-      </div>
-
-      <ul class="includes-list">
-        <li>VSL script written for your offer</li>
-        <li>Full funnel build — deployed and live</li>
-        <li>Email follow-up sequences</li>
-        <li>5-10 ad scripts for Meta</li>
-        <li>30-minute onboarding call included</li>
-      </ul>
-
-      <!-- FANBASES CHECKOUT EMBED -->
-      <div class="checkout-embed">
-        <!-- REPLACE THIS WITH YOUR FANBASES EMBED CODE -->
-        <div style="background: rgba(191,95,255,0.05); border: 1px dashed rgba(191,95,255,0.3); border-radius: 10px; padding: 32px; color: #555; font-size: 14px; text-align: center;">
-          [ Fanbases checkout embed goes here ]
-        </div>
-        <!-- END FANBASES EMBED -->
-      </div>
-
-      <p class="upsell-note">Want a fully written thank-you page and complete copy suite included? Ask us about upgrading after checkout.</p>
     </div>
   </section>
 
@@ -656,41 +868,64 @@
     <h2 class="reveal">Questions</h2>
     <div class="faq-list">
       <div class="faq-item reveal reveal-delay-1">
-        <div class="faq-q">What do I need to bring to the onboarding call?</div>
-        <p class="faq-a">Just show up. We'll ask you about your offer, your audience, and your goals. The call takes 30 minutes max. We do the rest.</p>
+        <div class="faq-q">Is this worth $297?</div>
+        <p class="faq-a">If your offer is high ticket and you close even one client through this funnel, you've paid for it 10x over. The deliverables alone — VSL script, funnel build, email sequences, 10 ad scripts, and a 12-email pre-sell sequence — would cost you $3,000+ hiring this out separately.</p>
       </div>
       <div class="faq-item reveal reveal-delay-2">
-        <div class="faq-q">What platform does the funnel get built on?</div>
-        <p class="faq-a">We build on Vercel. It's fast, clean, and there are no monthly platform fees. You own it.</p>
+        <div class="faq-q">Will it work for my niche?</div>
+        <p class="faq-a">If you sell high ticket — coaching, consulting, courses, done-for-you services — yes. The onboarding call is specifically so we can tailor everything to your offer and audience. Nothing is generic.</p>
       </div>
       <div class="faq-item reveal reveal-delay-3">
-        <div class="faq-q">Do I need to record a VSL before you start?</div>
-        <p class="faq-a">No. We write the VSL script as part of the build. You get the script delivered and you record it in your own time. The funnel goes live regardless.</p>
+        <div class="faq-q">How do you build it so fast?</div>
+        <p class="faq-a">We use a full AI workflow and a team that does this every day. What takes most people weeks to figure out, we've systemised down to 48 hours. You get the same quality — just faster.</p>
       </div>
       <div class="faq-item reveal reveal-delay-4">
-        <div class="faq-q">What kind of offers is this for?</div>
-        <p class="faq-a">Anyone selling high ticket. Coaching, consulting, courses, done-for-you services. If you need a system to sell it at scale, this is for you.</p>
+        <div class="faq-q">When will I see a return on this?</div>
+        <p class="faq-a">As soon as your funnel is live and you're running traffic to it, calls start booking into your calendar. Most people see their first booked call within days of launching.</p>
+      </div>
+      <div class="faq-item reveal reveal-delay-4">
+        <div class="faq-q">Do I need to record a VSL before you start?</div>
+        <p class="faq-a">No. We write the VSL script as part of the build. You record it in your own time. The funnel goes live regardless — it'll work with or without the video while you're getting it filmed.</p>
       </div>
       <div class="faq-item reveal reveal-delay-4">
         <div class="faq-q">How many spots are available each week?</div>
-        <p class="faq-a">We cap the number of builds each week to guarantee 48-hour delivery. Once spots are full, the next available slot rolls to the following week.</p>
+        <p class="faq-a">We cap at 10 builds per week to guarantee 48-hour delivery. Once spots are full, the next slot rolls to the following week.</p>
       </div>
     </div>
   </section>
 
+  <!-- CHECKOUT #3 -->
+  <section style="padding-bottom: 80px;">
+    <h2 class="reveal">Last chance to grab a spot this week.</h2>
+    <p class="reveal" style="margin-bottom: 32px;">10 spots. $297. 48 hours. No fluff.</p>
+    <div class="checkout-block reveal">
+      <div class="price-label">One-time payment</div>
+      <div class="price">$297</div>
+      <div class="price-note">Delivered within 48 hours of your onboarding call</div>
+      <ul class="includes-mini">
+        <li>VSL script written for your offer</li>
+        <li>Full funnel build — deployed and live</li>
+        <li>Email follow-up sequences</li>
+        <li>5-10 ad scripts for Meta</li>
+        <li>BONUS: 12-email pre-sell sequence</li>
+      </ul>
+      <div class="checkout-embed-wrap">
+        <div class="checkout-placeholder">[ Fanbases checkout embed ]</div>
+      </div>
+      <p style="font-size: 13px; color: var(--muted); margin-top: 16px; font-style: italic;">Questions? DM <a href="https://instagram.com/ellisdeakin_" style="color: var(--neon); text-decoration: none;">@ellisdeakin_</a> on Instagram.</p>
+    </div>
+  </section>
+
   <footer>
-    &copy; 2026 Elevate Operations. All rights reserved.<br>
-    <span style="font-size: 12px;">Questions? DM us on Instagram.</span>
+    &copy; 2026 Elevate Operations. All rights reserved.
   </footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>

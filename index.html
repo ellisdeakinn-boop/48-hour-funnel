@@ -368,6 +368,49 @@
     .bonus-item-title { font-weight: 700; font-size: 15px; color: #f5c842; margin-bottom: 4px; }
     .bonus-item-desc { font-size: 14px; color: var(--muted); margin: 0; }
 
+    .item-value {
+      margin-left: auto; flex-shrink: 0;
+      font-size: 13px; font-weight: 700;
+      color: var(--muted); text-decoration: line-through;
+      align-self: center; padding-left: 12px;
+    }
+
+    .offer-core-value {
+      display: inline-block;
+      font-size: 13px; font-weight: 700;
+      color: var(--muted); text-decoration: line-through;
+      margin-top: 8px;
+    }
+
+    .deliverables-total {
+      max-width: 620px; margin: 24px auto 0;
+      background: linear-gradient(135deg, rgba(191,95,255,0.1), rgba(13,13,20,0.95));
+      border: 1px solid rgba(191,95,255,0.35);
+      border-radius: 14px;
+      padding: 24px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .deliverables-total-left { font-size: 15px; color: var(--muted); }
+    .deliverables-total-left strong { display: block; font-size: 17px; color: var(--text); margin-bottom: 2px; }
+
+    .deliverables-total-right { text-align: right; flex-shrink: 0; }
+    .deliverables-total-was { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-bottom: 2px; }
+    .deliverables-total-now { font-size: 36px; font-weight: 900; color: var(--neon); line-height: 1; }
+
+    .deliverables-cta {
+      max-width: 620px; margin: 16px auto 0;
+      display: block; text-align: center;
+      padding: 18px 24px;
+      background: linear-gradient(135deg, var(--accent2), var(--neon));
+      color: #fff; font-weight: 800; font-size: 17px;
+      border-radius: 12px; text-decoration: none;
+      box-shadow: 0 4px 24px rgba(191,95,255,0.35);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .deliverables-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
     .mockup-wrap {
       margin: 32px auto 0; max-width: 580px;
       display: flex; flex-direction: column; gap: 16px;
@@ -836,7 +879,7 @@
         <li>Full funnel build (deployed and live)</li>
         <li class="bonus-item">BONUS: VSL script written for your offer</li>
         <li class="bonus-item">BONUS: Email follow-up sequences</li>
-        <li class="bonus-item">BONUS: 5-10 ad scripts for Meta</li>
+        <li class="bonus-item">BONUS: 19 ad scripts for Meta</li>
         <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">
@@ -869,6 +912,7 @@
       <div class="offer-core-label">Core Deliverable</div>
       <div class="offer-core-title">Full VSL Funnel Build</div>
       <p class="offer-core-desc">A clean, fast-loading VSL funnel page built and deployed for you. No Webflow, no ClickFunnels, no monthly fees. You get the login, the live URL, and full ownership.</p>
+      <span class="offer-core-value">Value: $3,000</span>
     </div>
 
     <div class="mockup-wrap reveal" style="margin-top: 24px;">
@@ -902,29 +946,39 @@
           <div class="bonus-item-title">VSL Script</div>
           <p class="bonus-item-desc">A full video sales letter script written for your offer, your audience, and your tone. Ready to record the day you receive it.</p>
         </div>
+        <div class="item-value">$1,500</div>
       </div>
       <div class="bonus-item-card reveal-right reveal-delay-2">
         <div class="bonus-item-icon">&#128140;</div>
         <div>
-          <div class="bonus-item-title">Email Follow-Up Sequences</div>
-          <p class="bonus-item-desc">Written sequences that convert the leads who don't book straight away. Structured and ready to plug into your email platform.</p>
+          <div class="bonus-item-title">12-Email Pre-Sell Sequence</div>
+          <p class="bonus-item-desc">Every lead that books through your funnel gets this sequence. By the time they show up to the call, they're already bought in. Your close rate goes up. Your no-shows go down.</p>
         </div>
+        <div class="item-value">$2,000</div>
       </div>
       <div class="bonus-item-card reveal-left reveal-delay-3">
         <div class="bonus-item-icon">&#128242;</div>
         <div>
-          <div class="bonus-item-title">5-10 Ad Scripts for Meta</div>
+          <div class="bonus-item-title">19 Ad Scripts for Meta</div>
           <p class="bonus-item-desc">Ready-to-run scripts written for your offer. Hand them to an editor or film them yourself.</p>
         </div>
-      </div>
-      <div class="bonus-item-card reveal-right reveal-delay-4">
-        <div class="bonus-item-icon">&#9993;</div>
-        <div>
-          <div class="bonus-item-title">12-Email Pre-Sell Sequence</div>
-          <p class="bonus-item-desc">Every lead that books through your funnel gets this sequence. By the time they show up to the call, they're already bought in. Your close rate goes up. Your no-shows go down.</p>
-        </div>
+        <div class="item-value">$1,500</div>
       </div>
     </div>
+
+    <div class="deliverables-total reveal">
+      <div class="deliverables-total-left">
+        <strong>Total value</strong>
+        Everything above, done in 48 hours
+      </div>
+      <div class="deliverables-total-right">
+        <div class="deliverables-total-was">$8,000</div>
+        <div class="deliverables-total-now">$497</div>
+      </div>
+    </div>
+
+    <a href="https://www.fanbasis.com/agency-checkout/elevateoperations/NYv6p" class="deliverables-cta reveal">Get Your Funnel Built - $497</a>
+
   </section>
 
   <!-- BONUS EMAIL MOCKUP -->
@@ -985,53 +1039,6 @@
               <div class="email-row-day">All written and delivered with your build</div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE STACK -->
-  <section>
-    <h2 class="reveal">Everything you get.<br><span class="purple">What it's worth.</span></h2>
-    <p class="reveal">This is what a proper agency would charge you for each piece individually.</p>
-
-    <div class="value-stack reveal">
-      <div class="value-stack-row">
-        <div class="value-stack-label">
-          Full VSL Funnel Build
-          <span>Built, designed and deployed on a live URL</span>
-        </div>
-        <div class="value-stack-price">$3,000</div>
-      </div>
-      <div class="value-stack-row">
-        <div class="value-stack-label">
-          VSL Script
-          <span>Written for your offer, your voice, your proof</span>
-        </div>
-        <div class="value-stack-price">$1,500</div>
-      </div>
-      <div class="value-stack-row">
-        <div class="value-stack-label">
-          12-Email Pre-Sell Sequence
-          <span>Automated follow-up that closes leads before the call</span>
-        </div>
-        <div class="value-stack-price">$2,000</div>
-      </div>
-      <div class="value-stack-row">
-        <div class="value-stack-label">
-          19 Ad Scripts for Meta
-          <span>Ready to run on Instagram and Facebook</span>
-        </div>
-        <div class="value-stack-price">$1,500</div>
-      </div>
-      <div class="value-stack-total">
-        <div class="value-stack-total-label">
-          Total value
-          <span>Everything above, done in 48 hours</span>
-        </div>
-        <div class="value-stack-you-pay">
-          <div class="value-stack-was">$8,000</div>
-          <div class="value-stack-now">$497</div>
         </div>
       </div>
     </div>
@@ -1109,7 +1116,7 @@
         <li>Full funnel build (deployed and live)</li>
         <li class="bonus-item">BONUS: VSL script written for your offer</li>
         <li class="bonus-item">BONUS: Email follow-up sequences</li>
-        <li class="bonus-item">BONUS: 5-10 ad scripts for Meta</li>
+        <li class="bonus-item">BONUS: 19 ad scripts for Meta</li>
         <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">
@@ -1222,7 +1229,7 @@
         <li>Full funnel build (deployed and live)</li>
         <li class="bonus-item">BONUS: VSL script written for your offer</li>
         <li class="bonus-item">BONUS: Email follow-up sequences</li>
-        <li class="bonus-item">BONUS: 5-10 ad scripts for Meta</li>
+        <li class="bonus-item">BONUS: 19 ad scripts for Meta</li>
         <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">

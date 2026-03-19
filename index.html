@@ -697,10 +697,70 @@
       border-top: 1px solid var(--border);
     }
 
+    /* Value Stack */
+    .value-stack {
+      max-width: 580px; margin: 40px auto 0;
+      border: 1px solid rgba(191,95,255,0.3);
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(160deg, rgba(191,95,255,0.07), rgba(13,13,20,0.95));
+    }
+
+    .value-stack-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(191,95,255,0.12);
+      gap: 12px;
+    }
+
+    .value-stack-row:last-of-type { border-bottom: none; }
+
+    .value-stack-label {
+      font-size: 14px; color: #ccc; line-height: 1.4;
+    }
+
+    .value-stack-label span {
+      display: block; font-size: 11px; color: var(--muted); margin-top: 2px;
+    }
+
+    .value-stack-price {
+      font-size: 15px; font-weight: 700;
+      color: var(--muted); text-decoration: line-through; white-space: nowrap;
+    }
+
+    .value-stack-total {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px;
+      background: rgba(191,95,255,0.1);
+      border-top: 1px solid rgba(191,95,255,0.3);
+    }
+
+    .value-stack-total-label {
+      font-size: 15px; font-weight: 700; color: var(--text);
+    }
+
+    .value-stack-total-label span {
+      display: block; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px;
+    }
+
+    .value-stack-you-pay {
+      text-align: right;
+    }
+
+    .value-stack-was {
+      font-size: 13px; color: var(--muted); text-decoration: line-through; margin-bottom: 2px;
+    }
+
+    .value-stack-now {
+      font-size: 28px; font-weight: 900; color: var(--neon);
+    }
+
     @media (max-width: 600px) {
       .about-wrap { flex-direction: column; text-align: center; }
       .results-grid { grid-template-columns: 1fr 1fr; }
       .checkout-block { padding: 28px 20px; }
+      .value-stack-row { padding: 14px 18px; }
+      .value-stack-total { padding: 18px; }
     }
   </style>
 </head>
@@ -888,6 +948,53 @@
               <div class="email-row-day">All written and delivered with your build</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE STACK -->
+  <section>
+    <h2 class="reveal">Everything you get.<br><span class="purple">What it's worth.</span></h2>
+    <p class="reveal">This is what a proper agency would charge you for each piece individually.</p>
+
+    <div class="value-stack reveal">
+      <div class="value-stack-row">
+        <div class="value-stack-label">
+          Full VSL Funnel Build
+          <span>Built, designed and deployed on a live URL</span>
+        </div>
+        <div class="value-stack-price">$3,000</div>
+      </div>
+      <div class="value-stack-row">
+        <div class="value-stack-label">
+          VSL Script
+          <span>Written for your offer, your voice, your proof</span>
+        </div>
+        <div class="value-stack-price">$1,500</div>
+      </div>
+      <div class="value-stack-row">
+        <div class="value-stack-label">
+          12-Email Pre-Sell Sequence
+          <span>Automated follow-up that closes leads before the call</span>
+        </div>
+        <div class="value-stack-price">$2,000</div>
+      </div>
+      <div class="value-stack-row">
+        <div class="value-stack-label">
+          19 Ad Scripts for Meta
+          <span>Ready to run on Instagram and Facebook</span>
+        </div>
+        <div class="value-stack-price">$1,500</div>
+      </div>
+      <div class="value-stack-total">
+        <div class="value-stack-total-label">
+          Total value
+          <span>Everything above, done in 48 hours</span>
+        </div>
+        <div class="value-stack-you-pay">
+          <div class="value-stack-was">$8,000</div>
+          <div class="value-stack-now">$497</div>
         </div>
       </div>
     </div>

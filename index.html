@@ -757,24 +757,15 @@
 
     .logo-wrap {
       text-align: center;
-      padding: 36px 24px 0;
-    }
-
-    .logo-container {
-      display: inline-block;
-      background: #fff;
-      border-radius: 16px;
-      padding: 16px 28px;
-      box-shadow:
-        0 0 0 1px rgba(191,95,255,0.25),
-        0 0 32px rgba(191,95,255,0.4),
-        0 0 72px rgba(191,95,255,0.2);
+      padding: 32px 24px 0;
     }
 
     .logo-container img {
-      height: 52px;
+      height: 56px;
       width: auto;
       display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 18px rgba(191,95,255,0.55)) drop-shadow(0 0 40px rgba(191,95,255,0.25));
     }
 
     @media (max-width: 600px) {
@@ -789,14 +780,14 @@
 </head>
 <body>
 
+  <div class="spots-bar">
+    Only <span>10 spots</span> available this week - once they're gone, the next slot is the following week
+  </div>
+
   <div class="logo-wrap">
     <div class="logo-container">
       <img src="logo.png" alt="Elevate Operations" />
     </div>
-  </div>
-
-  <div class="spots-bar">
-    Only <span>10 spots</span> available this week - once they're gone, the next slot is the following week
   </div>
 
   <div class="hero reveal">

@@ -657,6 +657,34 @@
     .faq-q { font-weight: 700; margin-bottom: 8px; color: var(--text); }
     .faq-a { font-size: 15px; color: var(--muted); margin: 0; }
 
+    .cta-btn {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      background: linear-gradient(135deg, var(--accent2), var(--neon));
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 12px;
+      letter-spacing: -0.01em;
+      box-shadow: 0 0 32px rgba(191,95,255,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: btn-pulse 3s ease-in-out infinite;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 48px rgba(191,95,255,0.55);
+    }
+
+    @keyframes btn-pulse {
+      0%, 100% { box-shadow: 0 0 32px rgba(191,95,255,0.35); }
+      50% { box-shadow: 0 0 52px rgba(191,95,255,0.6); }
+    }
+
     footer {
       text-align: center; padding: 36px 24px;
       font-size: 13px; color: var(--muted);
@@ -710,7 +738,7 @@
       </ul>
       <div class="checkout-embed-wrap">
         <!-- FANBASES EMBED -->
-        <iframe src="https://www.fanbasis.com/agency-checkout/elevateoperations/NYv6p" width="100%" height="650" frameborder="0" style="border: none; border-radius: 10px;"></iframe>
+        <a href="https://www.fanbasis.com/agency-checkout/elevateoperations/NYv6p" target="_blank" class="cta-btn">Get Your Funnel Built - $297</a>
       </div>
     </div>
   </section>
@@ -935,7 +963,7 @@
         <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">
-        <iframe src="https://www.fanbasis.com/agency-checkout/elevateoperations/NYv6p" width="100%" height="650" frameborder="0" style="border: none; border-radius: 10px;"></iframe>
+        <a href="https://www.fanbasis.com/agency-checkout/elevateoperations/NYv6p" target="_blank" class="cta-btn">Get Your Funnel Built - $297</a>
       </div>
     </div>
   </section>
@@ -1048,7 +1076,7 @@
         <li class="bonus-item">BONUS: 12-email pre-sell sequence</li>
       </ul>
       <div class="checkout-embed-wrap">
-        <iframe src="https://www.fanbasis.com/agency-checkout/elevateoperations/NYv6p" width="100%" height="650" frameborder="0" style="border: none; border-radius: 10px;"></iframe>
+        <a href="https://www.fanbasis.com/agency-checkout/elevateoperations/NYv6p" target="_blank" class="cta-btn">Get Your Funnel Built - $297</a>
       </div>
       <p style="font-size: 13px; color: var(--muted); margin-top: 16px; font-style: italic;">Questions? DM <a href="https://instagram.com/ellisdeakin_" style="color: var(--neon); text-decoration: none;">@ellisdeakin_</a> on Instagram.</p>
     </div>

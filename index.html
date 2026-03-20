@@ -828,6 +828,99 @@
     .stars { font-size: 19px; color: #f5c842; letter-spacing: 3px; margin-bottom: 4px; }
     .stars-label { font-size: 13px; color: var(--muted); margin: 0; }
 
+    /* ROI Calculator */
+    .roi-calc {
+      max-width: 580px; margin: 36px auto 0;
+      background: linear-gradient(135deg, rgba(191,95,255,0.08), rgba(13,13,20,0.95));
+      border: 1px solid rgba(191,95,255,0.3);
+      border-radius: 18px; padding: 32px 28px;
+      text-align: left;
+    }
+
+    .roi-input-group { margin-bottom: 28px; }
+    .roi-input-group:last-of-type { margin-bottom: 0; }
+
+    .roi-label {
+      font-size: 13px; font-weight: 700;
+      color: #ccc; letter-spacing: 0.04em;
+      text-transform: uppercase; margin-bottom: 12px;
+      display: block;
+    }
+
+    .roi-slider-row {
+      display: flex; align-items: center; gap: 16px;
+    }
+
+    .roi-slider-row input[type=range] {
+      flex: 1; -webkit-appearance: none; appearance: none;
+      height: 4px; border-radius: 4px; outline: none;
+      background: rgba(191,95,255,0.2);
+      cursor: pointer;
+    }
+
+    .roi-slider-row input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent2), var(--neon));
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(191,95,255,0.6);
+      transition: box-shadow 0.2s;
+    }
+
+    .roi-slider-row input[type=range]::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 18px rgba(191,95,255,0.9);
+    }
+
+    .roi-val {
+      font-size: 18px; font-weight: 800;
+      color: var(--neon); white-space: nowrap;
+      min-width: 90px; text-align: right;
+      text-shadow: 0 0 12px var(--neon-glow);
+    }
+
+    .roi-results {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin-top: 32px;
+    }
+
+    .roi-result-card {
+      background: rgba(191,95,255,0.07);
+      border: 1px solid rgba(191,95,255,0.2);
+      border-radius: 12px; padding: 18px 14px; text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .roi-result-card:hover { border-color: rgba(191,95,255,0.45); }
+
+    .roi-result-label {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 8px;
+    }
+
+    .roi-result-value {
+      font-size: 26px; font-weight: 900;
+      color: var(--neon); line-height: 1;
+      text-shadow: 0 0 14px var(--neon-glow);
+    }
+
+    .roi-result-value.highlight {
+      color: #50c878;
+      text-shadow: 0 0 14px rgba(80,200,120,0.4);
+    }
+
+    .roi-footnote {
+      font-size: 12px !important; color: #444 !important;
+      margin-top: 18px !important; margin-bottom: 0 !important;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .roi-results { grid-template-columns: 1fr 1fr; }
+      .roi-result-card:last-child { grid-column: 1 / -1; }
+      .roi-calc { padding: 24px 20px; }
+    }
+
     .logo-wrap {
       text-align: center;
       padding: 40px 24px 0;
@@ -1147,6 +1240,47 @@
     </div>
   </section>
 
+  <!-- ROI CALCULATOR -->
+  <section>
+    <h2 class="reveal">See your <span class="purple">return on $497</span></h2>
+    <p class="reveal">Adjust the numbers to your offer. See exactly how fast this pays back.</p>
+
+    <div class="roi-calc reveal">
+      <div class="roi-input-group">
+        <label class="roi-label">Average client value</label>
+        <div class="roi-slider-row">
+          <input type="range" id="clientValue" min="500" max="25000" step="500" value="3000">
+          <div class="roi-val" id="clientValueDisplay">$3,000</div>
+        </div>
+      </div>
+
+      <div class="roi-input-group">
+        <label class="roi-label">New clients per month from the funnel</label>
+        <div class="roi-slider-row">
+          <input type="range" id="clientCount" min="1" max="20" step="1" value="3">
+          <div class="roi-val" id="clientCountDisplay">3 clients</div>
+        </div>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-result-card">
+          <div class="roi-result-label">Break even after</div>
+          <div class="roi-result-value" id="calcBreakeven">1 client</div>
+        </div>
+        <div class="roi-result-card">
+          <div class="roi-result-label">Monthly revenue</div>
+          <div class="roi-result-value" id="calcMonthly">$9,000</div>
+        </div>
+        <div class="roi-result-card">
+          <div class="roi-result-label">Return on $497</div>
+          <div class="roi-result-value highlight" id="calcROI">18x</div>
+        </div>
+      </div>
+
+      <p class="roi-footnote">Based on your inputs. Results depend on offer quality, traffic, and execution.</p>
+    </div>
+  </section>
+
   <!-- CHECKOUT #2 -->
   <section>
     <h2 class="reveal">Ready to get your funnel built?</h2>
@@ -1341,6 +1475,37 @@
     }, { threshold: 0.5 });
 
     document.querySelectorAll('.result-number').forEach(el => counterObserver.observe(el));
+
+    // ROI Calculator
+    const clientValueEl = document.getElementById('clientValue');
+    const clientCountEl = document.getElementById('clientCount');
+    const clientValueDisplay = document.getElementById('clientValueDisplay');
+    const clientCountDisplay = document.getElementById('clientCountDisplay');
+    const calcBreakeven = document.getElementById('calcBreakeven');
+    const calcMonthly = document.getElementById('calcMonthly');
+    const calcROI = document.getElementById('calcROI');
+
+    function fmt(n) {
+      return '$' + n.toLocaleString('en-US');
+    }
+
+    function updateROI() {
+      const val = parseInt(clientValueEl.value);
+      const count = parseInt(clientCountEl.value);
+      const monthly = val * count;
+      const breakeven = Math.ceil(497 / val);
+      const roi = Math.round(monthly / 497);
+
+      clientValueDisplay.textContent = fmt(val);
+      clientCountDisplay.textContent = count + (count === 1 ? ' client' : ' clients');
+      calcBreakeven.textContent = breakeven + (breakeven === 1 ? ' client' : ' clients');
+      calcMonthly.textContent = fmt(monthly);
+      calcROI.textContent = roi + 'x';
+    }
+
+    clientValueEl.addEventListener('input', updateROI);
+    clientCountEl.addEventListener('input', updateROI);
+    updateROI();
   </script>
 
 </body>

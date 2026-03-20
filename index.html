@@ -798,6 +798,36 @@
       font-size: 28px; font-weight: 900; color: var(--neon);
     }
 
+    /* Trust strip */
+    .trust-strip {
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 24px;
+      max-width: var(--max);
+      margin: -8px auto 36px;
+      padding: 0 24px;
+    }
+    .trust-item {
+      font-size: 13px; color: #777;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .trust-item span { color: var(--neon); font-weight: 700; }
+
+    /* ROI note */
+    .roi-note {
+      font-size: 13px !important;
+      color: var(--neon) !important;
+      font-weight: 600 !important;
+      margin-top: 0 !important;
+      margin-bottom: 20px !important;
+      text-align: center;
+    }
+
+    /* Stars bar */
+    .stars-bar { text-align: center; margin: 28px auto 0; max-width: 580px; }
+    .stars { font-size: 19px; color: #f5c842; letter-spacing: 3px; margin-bottom: 4px; }
+    .stars-label { font-size: 13px; color: var(--muted); margin: 0; }
+
     .logo-wrap {
       text-align: center;
       padding: 40px 24px 0;
@@ -856,6 +886,13 @@
     <p class="subheadline">Your funnel isn't broken. It was never built. You show up to a 30-minute call — we build the whole thing from scratch and hand it over within 48 hours.</p>
   </div>
 
+  <div class="trust-strip reveal">
+    <div class="trust-item"><span>✓</span> Nothing templated — built from scratch</div>
+    <div class="trust-item"><span>✓</span> 48-hour delivery guaranteed</div>
+    <div class="trust-item"><span>✓</span> Full refund if we don't deliver</div>
+    <div class="trust-item"><span>✓</span> Capped at 10 builds per week</div>
+  </div>
+
   <div class="video-wrap reveal">
     <div class="video-container">
       <!-- REPLACE WITH YOUR VIDEO EMBED -->
@@ -875,6 +912,7 @@
       <div class="price-label">One-time payment</div>
       <div class="price">$497</div>
       <div class="price-note">48-hour delivery from your onboarding call</div>
+      <p class="roi-note">One closed client at $2,000+ covers this 4x. At $5,000 — 10x.</p>
       <ul class="includes-mini">
         <li>Full funnel build (deployed and live)</li>
         <li class="bonus-item">BONUS: VSL script written for your offer</li>
@@ -1070,6 +1108,11 @@
       </div>
     </div>
 
+    <div class="stars-bar reveal">
+      <div class="stars">★★★★★</div>
+      <p class="stars-label">Real results — verified by client Instagram handles shown above. Go check them.</p>
+    </div>
+
     <div class="testimonials">
       <div class="testimonial reveal reveal-delay-1">
         <p class="testimonial-text">"I went from $400 a month to $45K in 12 days. The funnel and the system they built was the missing piece I didn't know I needed."</p>
@@ -1112,6 +1155,7 @@
       <div class="price-label">One-time payment</div>
       <div class="price">$497</div>
       <div class="price-note">Delivered within 48 hours of your onboarding call</div>
+      <p class="roi-note">One closed client at $2,000+ covers this 4x. At $5,000 — 10x.</p>
       <ul class="includes-mini">
         <li>Full funnel build (deployed and live)</li>
         <li class="bonus-item">BONUS: VSL script written for your offer</li>
@@ -1190,6 +1234,10 @@
   <section>
     <h2 class="reveal">Questions</h2>
     <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q">Who is this built for?</div>
+        <p class="faq-a">Businesses with a proven offer — coaching, consulting, done-for-you services, agencies — who are generating some revenue but still selling manually with no proper funnel in place. If you're clear on your offer and your audience and you know a system is the missing piece, this is built for you. If you have zero offer clarity, get that sorted first and come back.</p>
+      </div>
       <div class="faq-item reveal reveal-delay-1">
         <div class="faq-q">Is this worth $497?</div>
         <p class="faq-a">If your offer is high ticket and you close even one client through this funnel, you've covered the cost many times over. A VSL script, funnel build, email sequences, 10 ad scripts, and a 12-email pre-sell sequence would cost $3,000 or more if you hired each piece out separately.</p>
@@ -1229,6 +1277,7 @@
       <div class="price-label">One-time payment</div>
       <div class="price">$497</div>
       <div class="price-note">Delivered within 48 hours of your onboarding call</div>
+      <p class="roi-note">One closed client at $2,000+ covers this 4x. At $5,000 — 10x.</p>
       <ul class="includes-mini">
         <li>Full funnel build (deployed and live)</li>
         <li class="bonus-item">BONUS: VSL script written for your offer</li>
@@ -1245,6 +1294,7 @@
 
   <footer>
     &copy; 2026 Elevate Operations. All rights reserved.
+    <p style="margin-top: 14px; font-size: 12px; color: #444; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.6;">Results shown are from real clients. Individual results will vary based on offer quality, traffic source, and execution. Revenue figures are not typical and do not represent average outcomes. Past results do not guarantee future performance. This site is not affiliated with or endorsed by Meta Platforms, Inc.</p>
   </footer>
 
   <script>

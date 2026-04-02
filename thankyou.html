@@ -440,9 +440,109 @@
 
   </div>
 
+  <!-- Discord Onboarding -->
+  <div style="max-width:680px;margin:0 auto;padding:0 24px 80px;">
+    <div class="divider">Finally</div>
+
+    <div class="booking-section" style="margin-top:40px;">
+      <div class="booking-label">Step 3 - Set up your private Discord workspace</div>
+      <div class="booking-card">
+        <h2>Your private client channels</h2>
+        <p>Enter your company or brand name below — we'll create your private workspace in our Discord instantly.</p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+          <input
+            id="company-input"
+            type="text"
+            placeholder="Your company or brand name..."
+            style="
+              flex:1;min-width:200px;
+              background:rgba(255,255,255,0.05);
+              border:1px solid rgba(88,101,242,0.4);
+              border-radius:10px;
+              padding:14px 18px;
+              font-size:16px;
+              color:#f0f0f0;
+              outline:none;
+              font-family:inherit;
+            "
+          />
+          <button
+            id="discord-btn"
+            onclick="createDiscordWorkspace()"
+            style="
+              background:linear-gradient(135deg,#5865F2,#7289da);
+              color:#fff;font-size:16px;font-weight:800;
+              padding:14px 24px;border-radius:10px;border:none;
+              cursor:pointer;white-space:nowrap;
+              box-shadow:0 0 24px rgba(88,101,242,0.4);
+              font-family:inherit;
+            "
+          >Create My Workspace</button>
+        </div>
+
+        <div id="discord-status" style="display:none;margin-top:16px;"></div>
+
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;">
+          <div style="font-size:13px;color:#8888aa;"><span style="color:#5865F2;">&#9632;</span> Private category</div>
+          <div style="font-size:13px;color:#8888aa;"><span style="color:#5865F2;">&#9632;</span> 7 channels built</div>
+          <div style="font-size:13px;color:#8888aa;"><span style="color:#5865F2;">&#9632;</span> Your role assigned</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     &copy; 2026 Elevate Operations. All rights reserved.
   </footer>
+
+  <script>
+    const WORKER_URL = "https://elevate-discord-onboard.48hourfunnel.workers.dev";
+
+    async function createDiscordWorkspace() {
+      const input  = document.getElementById("company-input");
+      const btn    = document.getElementById("discord-btn");
+      const status = document.getElementById("discord-status");
+      const name   = input.value.trim();
+
+      if (!name) { input.style.borderColor = "rgba(239,68,68,0.6)"; input.focus(); return; }
+
+      btn.disabled = true;
+      btn.textContent = "Creating...";
+      btn.style.opacity = "0.7";
+      status.style.display = "none";
+
+      try {
+        const res  = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ companyName: name }),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          status.style.cssText = "display:block;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:10px;padding:16px 20px;color:#86efac;font-size:15px;margin-top:16px;";
+          status.innerHTML = `Your workspace is ready.<br><a href="${data.inviteUrl}" target="_blank" style="display:inline-block;margin-top:12px;background:linear-gradient(135deg,#5865F2,#7289da);color:#fff;font-weight:800;padding:12px 24px;border-radius:8px;text-decoration:none;font-size:15px;">Join the Discord</a>`;
+          btn.textContent = "Workspace Created";
+          btn.style.opacity = "1";
+          btn.style.background = "linear-gradient(135deg,#16a34a,#22c55e)";
+          input.disabled = true;
+        } else {
+          throw new Error(data.error || "Something went wrong");
+        }
+      } catch (err) {
+        status.style.cssText = "display:block;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:16px 20px;color:#fca5a5;font-size:14px;margin-top:16px;";
+        status.textContent = "Something went wrong — DM @ellisdeakin_ on Instagram.";
+        btn.disabled = false;
+        btn.textContent = "Try Again";
+        btn.style.opacity = "1";
+      }
+    }
+
+    document.getElementById("company-input").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") createDiscordWorkspace();
+    });
+  </script>
 
 </body>
 </html>

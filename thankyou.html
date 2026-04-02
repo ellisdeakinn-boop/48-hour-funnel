@@ -450,13 +450,29 @@
         <h2>Your private client channels</h2>
         <p>Enter your company or brand name below — we'll create your private workspace in our Discord instantly.</p>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;">
           <input
             id="company-input"
             type="text"
             placeholder="Your company or brand name..."
             style="
-              flex:1;min-width:200px;
+              width:100%;
+              background:rgba(255,255,255,0.05);
+              border:1px solid rgba(88,101,242,0.4);
+              border-radius:10px;
+              padding:14px 18px;
+              font-size:16px;
+              color:#f0f0f0;
+              outline:none;
+              font-family:inherit;
+            "
+          />
+          <input
+            id="discord-username-input"
+            type="text"
+            placeholder="Your Discord username (e.g. ellisdeakin)"
+            style="
+              width:100%;
               background:rgba(255,255,255,0.05);
               border:1px solid rgba(88,101,242,0.4);
               border-radius:10px;
@@ -474,7 +490,7 @@
               background:linear-gradient(135deg,#5865F2,#7289da);
               color:#fff;font-size:16px;font-weight:800;
               padding:14px 24px;border-radius:10px;border:none;
-              cursor:pointer;white-space:nowrap;
+              cursor:pointer;
               box-shadow:0 0 24px rgba(88,101,242,0.4);
               font-family:inherit;
             "
@@ -500,10 +516,12 @@
     const WORKER_URL = "https://elevate-discord-onboard.48hourfunnel.workers.dev";
 
     async function createDiscordWorkspace() {
-      const input  = document.getElementById("company-input");
-      const btn    = document.getElementById("discord-btn");
-      const status = document.getElementById("discord-status");
-      const name   = input.value.trim();
+      const input           = document.getElementById("company-input");
+      const usernameInput   = document.getElementById("discord-username-input");
+      const btn             = document.getElementById("discord-btn");
+      const status          = document.getElementById("discord-status");
+      const name            = input.value.trim();
+      const discordUsername = usernameInput.value.trim().replace(/^@/, "");
 
       if (!name) { input.style.borderColor = "rgba(239,68,68,0.6)"; input.focus(); return; }
 
@@ -516,7 +534,7 @@
         const res  = await fetch(WORKER_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ companyName: name }),
+          body: JSON.stringify({ companyName: name, discordUsername }),
         });
         const data = await res.json();
 
